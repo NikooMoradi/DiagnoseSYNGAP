@@ -1,0 +1,107 @@
+nohup: ignoring input
+/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/Preprocessing
+/home/s2864332/MySYNGAP/ArtifactDetection
+/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/FeatureEng/rat
+/home/s2864332/MySYNGAP/DiagnoseSYNGAP
+/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python310.zip
+/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10
+/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/lib-dynload
+/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages
+S7063
+0
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+15
+S7064
+0
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+15
+S7068
+0
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+15
+S7069
+0
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+15
+S7070
+0
+3
+4
+5
+6
+Traceback (most recent call last):
+  File "/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 270, in save
+    self._save()
+  File "/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 275, in _save
+    self._save_body()
+  File "/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 313, in _save_body
+    self._save_chunk(start_i, end_i)
+  File "/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 324, in _save_chunk
+    libwriters.write_csv_rows(
+  File "pandas/_libs/writers.pyx", line 56, in pandas._libs.writers.write_csv_rows
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/FeatureEng/rat/power.py", line 32, in <module>
+    if animal in SYNGAP_1_ls:
+  File "/home/s2864332/MySYNGAP/ArtifactDetection/artifactdetection/implement.py", line 20, in two_files
+    power_animal_df.to_csv(save_folder + f'{animal}_power.csv')
+  File "/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+  File "/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages/pandas/core/generic.py", line 3989, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+  File "/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages/pandas/io/common.py", line 157, in __exit__
+    self.close()
+  File "/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages/pandas/io/common.py", line 144, in close
+    handle.close()
+OSError: [Errno 28] No space left on device

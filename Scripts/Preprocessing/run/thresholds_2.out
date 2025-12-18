@@ -1,0 +1,195 @@
+nohup: ignoring input
+
+==========================
+Processing S7063 (BL1 + BL2)
+==========================
+→ Loading files
+→ Removing seizure epochs (State 4 = Seizure)
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -840.0293663905916
+			→ Intercept threshold: 74326.51186516575
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -786.831640722631
+			→ Intercept threshold: 69250.11933184898
+
+==========================
+Processing S7064 (BL1 + BL2)
+==========================
+→ Loading files
+→ Removing seizure epochs (State 4 = Seizure)
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -1285.4715494934517
+			→ Intercept threshold: 115853.12212502366
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -1572.1719461677715
+			→ Intercept threshold: 141671.95424614128
+
+==========================
+Processing S7069 (BL1 + BL2)
+==========================
+→ Loading files
+→ Removing seizure epochs (State 4 = Seizure)
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -532.3504980501348
+			→ Intercept threshold: 47409.216861760935
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -606.3561742935241
+			→ Intercept threshold: 53500.4166350917
+
+==========================
+Processing S7070 (BL1 + BL2)
+==========================
+→ Loading files
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -755.1869449771245
+			→ Intercept threshold: 68397.13168015133
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -725.1766400627794
+			→ Intercept threshold: 64993.88030510106
+
+==========================
+Processing S7071 (BL1 + BL2)
+==========================
+→ Loading files
+→ Removing seizure epochs (State 4 = Seizure)
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -835.9249881036775
+			→ Intercept threshold: 73832.14126927312
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -993.5197755070485
+			→ Intercept threshold: 88757.01342296449
+
+==========================
+Processing S7072 (BL1 + BL2)
+==========================
+→ Loading files
+→ Removing seizure epochs (State 4 = Seizure)
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -883.1075067241343
+			→ Intercept threshold: 79056.00731951965
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -770.421002849506
+			→ Intercept threshold: 68762.1257797361
+
+==========================
+Processing S7083 (BL1 + BL2)
+==========================
+→ Loading files
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -1119.7093371187962
+			→ Intercept threshold: 106543.83926768466
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -1494.7779035918668
+			→ Intercept threshold: 145067.22102746044
+
+==========================
+Processing S7086 (BL1 + BL2)
+==========================
+→ Loading files
+→ Removing seizure epochs (State 4 = Seizure)
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -925.9122384432542
+			→ Intercept threshold: 85907.84498330882
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -800.0969546074932
+			→ Intercept threshold: 72497.96182029645
+
+==========================
+Processing S7091 (BL1 + BL2)
+==========================
+→ Loading files
+→ Removing seizure epochs (State 4 = Seizure)
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -592.3684271118912
+			→ Intercept threshold: 53937.14188451519
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -489.47695227536315
+			→ Intercept threshold: 43600.02157701774
+
+==========================
+Processing S7098 (BL1 + BL2)
+==========================
+→ Loading files
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -1111.4638151085123
+			→ Intercept threshold: 100600.06009802839
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -1129.6917878259242
+			→ Intercept threshold: 102312.14163551976
+
+==========================
+Processing S7101 (BL1 + BL2)
+==========================
+→ Loading files
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -2521.6073811876754
+			→ Intercept threshold: 227147.8418612133
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -2588.1499451400427
+			→ Intercept threshold: 234904.15923815157
+
+==========================
+Processing S7068 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+			→ Slope threshold: -450.5385009571514
+			→ Intercept threshold: 40244.9225066165
+→ Saving outputs:
+		→ Saving cleaned brainstates
+Traceback (most recent call last):
+  File "/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/Preprocessing/remove_noise_br_2.py", line 220, in <module>
+    preprocess_data_1_animal(SYNGAP_1_ls, save_clean_br=True, save_filtered=False)
+  File "/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/Preprocessing/remove_noise_br_2.py", line 202, in preprocess_data_1_animal
+    save_clean_brain_states(clean_br_path, animal_id, clean_br)
+  File "/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/Preprocessing/remove_noise_br_2.py", line 36, in save_clean_brain_states
+    clean_br_1.to_pickle(clean_br_path + f"{animal_id}_BL1.pkl")
+AttributeError: 'NoneType' object has no attribute 'to_pickle'

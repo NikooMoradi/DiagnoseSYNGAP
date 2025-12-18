@@ -1,0 +1,119 @@
+nohup: ignoring input
+
+==========================
+Processing S7068 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs
+		→ Labeling noisy epochs in brainstate (State 5 = Noise)
+		→ Detecting harmonic artifacts
+		→ Labeling harmonic artifacts in brainstate (State 3 = Artifact/Harmonic)
+→ Saving cleaned brainstate
+Saved: S7068_BL1.pkl
+
+==========================
+Processing S7074 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs
+		→ Labeling noisy epochs in brainstate (State 5 = Noise)
+		→ Detecting harmonic artifacts
+		→ Labeling harmonic artifacts in brainstate (State 3 = Artifact/Harmonic)
+→ Saving cleaned brainstate
+Saved: S7074_BL1.pkl
+
+==========================
+Processing S7075 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs
+		→ Labeling noisy epochs in brainstate (State 5 = Noise)
+		→ Detecting harmonic artifacts
+		→ Labeling harmonic artifacts in brainstate (State 3 = Artifact/Harmonic)
+→ Saving cleaned brainstate
+Saved: S7075_BL1.pkl
+
+==========================
+Processing S7076 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs
+		→ Labeling noisy epochs in brainstate (State 5 = Noise)
+		→ Detecting harmonic artifacts
+		→ Labeling harmonic artifacts in brainstate (State 3 = Artifact/Harmonic)
+→ Saving cleaned brainstate
+Saved: S7076_BL1.pkl
+
+==========================
+Processing S7088 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs
+		→ Labeling noisy epochs in brainstate (State 5 = Noise)
+		→ Detecting harmonic artifacts
+		→ Labeling harmonic artifacts in brainstate (State 3 = Artifact/Harmonic)
+→ Saving cleaned brainstate
+Saved: S7088_BL1.pkl
+
+==========================
+Processing S7092 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs
+		→ Labeling noisy epochs in brainstate (State 5 = Noise)
+		→ Detecting harmonic artifacts
+		→ Labeling harmonic artifacts in brainstate (State 3 = Artifact/Harmonic)
+→ Saving cleaned brainstate
+Saved: S7092_BL1.pkl
+
+==========================
+Processing S7094 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+Traceback (most recent call last):
+  File "/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/Preprocessing/remove_noise_br_2.py", line 179, in <module>
+    preprocess_data_1_animal(SYNGAP_1_ls)
+  File "/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/Preprocessing/remove_noise_br_2.py", line 155, in preprocess_data_1_animal
+    seiz_1 = pd.read_csv(seizure_br_path + f"{animal_id}_BL1_Seizures.csv") # TODO: Ask Lucy about seizure files
+  File "/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/s2864332/miniforge3/envs/DiagnoseSYNGAP/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/home/melissa/PREPROCESSING/SYNGAP1/csv_seizures/S7094_BL1_Seizures.csv'

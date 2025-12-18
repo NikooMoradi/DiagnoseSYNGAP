@@ -33,26 +33,26 @@ class PowerAnalysis:
             all_channels_slope = []
             for channel in self.channel_indices:
                 print(channel)
-                channel_df = pd.read_csv(os.path.join(self.channel_folder, f'channel_{channel}/', f'{animal}_slope.csv'))
+                channel_df = pd.read_pickle(os.path.join(self.channel_folder, f'channel_{channel}/', f'{animal}_slope.pkl'))
                 filtered_slope_df = channel_df[channel_df['Epoch'].isin(clean_indices)]
                 all_channels_slope.append(filtered_slope_df)
-            channel_df = pd.read_csv(os.path.join(self.channel_folder, f'channel_2/', f'{animal}_slope.csv'))
+            channel_df = pd.read_pickle(os.path.join(self.channel_folder, f'channel_2/', f'{animal}_slope.pkl'))
             filtered_slope_df_2 = channel_df[channel_df['Epoch'].isin(clean_indices)]
             all_channels_slope.append(filtered_slope_df_2)
             all_channels_slope_concat = pd.concat(all_channels_slope)
-            all_channels_slope_concat.to_csv(os.path.join(self.output_path, f'{animal}_all_channel_slope.csv'))
+            all_channels_slope_concat.to_pickle(os.path.join(self.output_path, f'{animal}_all_channel_slope.pkl'))
             print(f'{animal} saved')
 
     def get_clean_indices(self, animal):
-        clean_file_name = f'{animal}_clean_power.csv'
-        clean_indices = np.unique(pd.read_csv(os.path.join(self.clean_folder, clean_file_name))['Epoch'])
+        clean_file_name = f'{animal}_clean_power.pkl'
+        clean_indices = np.unique(pd.read_pickle(os.path.join(self.clean_folder, clean_file_name))['Epoch'])
         return clean_indices
     
     def process_channel(self, animal, channel, clean_indices, clean_power=False):
         if clean_power:
-            channel_df = pd.read_csv(os.path.join(self.channel_folder, f'channel_2/', f'{animal}_clean_power.csv'))
+            channel_df = pd.read_pickle(os.path.join(self.channel_folder, f'channel_2/', f'{animal}_clean_power.pkl'))
         else:
-            channel_df = pd.read_csv(os.path.join(self.channel_folder, f'channel_{channel}/', f'{animal}_power.csv'))
+            channel_df = pd.read_pickle(os.path.join(self.channel_folder, f'channel_{channel}/', f'{animal}_power.pkl'))
             channel_df = channel_df[channel_df['Epoch'].isin(clean_indices)]
 
         frequency_bands = {
@@ -78,6 +78,6 @@ class PowerAnalysis:
 
     def save_results(self, animal, all_channels):
         all_channels_concat = pd.concat(all_channels)
-        output_path = os.path.join(self.output_path, f'{animal}_all_channels.csv')
-        all_channels_concat.to_csv(output_path, index=False)
+        output_path = os.path.join(self.output_path, f'{animal}_all_channels.pkl')
+        all_channels_concat.to_pickle(output_path, index=False)
         

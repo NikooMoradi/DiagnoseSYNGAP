@@ -1,0 +1,1 @@
+nohup python3 connectivity.py > /home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/FeatureEng/rat/run/connectivity/connectivity_1.out 2>&1 &

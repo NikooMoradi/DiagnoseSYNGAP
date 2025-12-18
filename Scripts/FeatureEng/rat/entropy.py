@@ -5,15 +5,15 @@ import pandas as pd
 
 from complexity_class import DispersionEntropy
 
-sys.path.insert(0, '/home/melissa/PROJECT_DIRECTORIES/EEGFeatureExtraction/Scripts/Preprocessing')
+sys.path.insert(0, '/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/Preprocessing')
 from load_files import LoadFiles
 from filter import NoiseFilter, HarmonicsFilter, remove_seizure_epochs
 from constants import SYNGAP_baseline_start, SYNGAP_baseline_end, channel_variables, analysis_ls, SYNGAP_1_ls, SYNGAP_2_ls
 
 channel_indices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 channel_labels = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15]
-directory_path = '/home/melissa/PREPROCESSING/SYNGAP1/numpyformat_baseline/'
-results_path = '/home/melissa/PROJECT_DIRECTORIES/EEGFeatureExtraction/Results/Complexity/'
+directory_path = '/home/s2864332/SYNGAP_Rat_Data/formatted/numpyformat_baseline'
+results_path = '/home/s2864332/SYNGAP_Rat_Data/FeatureEng/complexity/entropy/'
 
 for animal in analysis_ls:
     print(f'loading {animal}')
@@ -44,7 +44,10 @@ for animal in analysis_ls:
         
         # Concatenate on axis=1 to merge DataFrames
         channel_concat = pd.concat(channel_ls, axis=1)
-        channel_concat.to_csv(f'{results_path}{animal}_disp_entropy.csv', index=False)
+        channel_concat.to_pickle(f"{results_path}{animal}_disp_entropy.pkl")
+        # channel_concat.to_csv(f'{results_path}{animal}_disp_entropy.csv', index=False)
+
+
     
     elif animal in SYNGAP_1_ls:
         data, brain_state = load_files.load_one_analysis_file(start_times_dict=SYNGAP_baseline_start, end_times_dict=SYNGAP_baseline_end)
@@ -66,4 +69,5 @@ for animal in analysis_ls:
             
                 channel_ls.append(ent_df_chan)
             channel_concat = pd.concat(channel_ls, axis=1)
-            channel_concat.to_csv(f'{results_path}{animal}_disp_entropy.csv', index=False)
+            channel_concat.to_pickle(f"{results_path}{animal}_disp_entropy.pkl")
+            # channel_concat.to_csv(f'{results_path}{animal}_disp_entropy.csv', index=False)

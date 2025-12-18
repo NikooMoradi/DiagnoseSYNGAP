@@ -1,0 +1,324 @@
+nohup: ignoring input
+
+==========================
+Processing S7063 (BL1 + BL2)
+==========================
+→ Loading files
+→ Removing seizure epochs (State 4 = Seizure)
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7063_BL1.pkl
+			Saved: S7063_BL2.pkl
+		→ Saving clean epoch indices for power analysis => NOT READY YET!!!!
+
+==========================
+Processing S7064 (BL1 + BL2)
+==========================
+→ Loading files
+→ Removing seizure epochs (State 4 = Seizure)
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7064_BL1.pkl
+			Saved: S7064_BL2.pkl
+		→ Saving clean epoch indices for power analysis => NOT READY YET!!!!
+
+==========================
+Processing S7069 (BL1 + BL2)
+==========================
+→ Loading files
+→ Removing seizure epochs (State 4 = Seizure)
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7069_BL1.pkl
+			Saved: S7069_BL2.pkl
+		→ Saving clean epoch indices for power analysis => NOT READY YET!!!!
+
+==========================
+Processing S7070 (BL1 + BL2)
+==========================
+→ Loading files
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7070_BL1.pkl
+			Saved: S7070_BL2.pkl
+		→ Saving clean epoch indices for power analysis => NOT READY YET!!!!
+
+==========================
+Processing S7071 (BL1 + BL2)
+==========================
+→ Loading files
+→ Removing seizure epochs (State 4 = Seizure)
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7071_BL1.pkl
+			Saved: S7071_BL2.pkl
+		→ Saving clean epoch indices for power analysis => NOT READY YET!!!!
+
+==========================
+Processing S7072 (BL1 + BL2)
+==========================
+→ Loading files
+→ Removing seizure epochs (State 4 = Seizure)
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7072_BL1.pkl
+			Saved: S7072_BL2.pkl
+		→ Saving clean epoch indices for power analysis => NOT READY YET!!!!
+
+==========================
+Processing S7083 (BL1 + BL2)
+==========================
+→ Loading files
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7083_BL1.pkl
+			Saved: S7083_BL2.pkl
+		→ Saving clean epoch indices for power analysis => NOT READY YET!!!!
+
+==========================
+Processing S7086 (BL1 + BL2)
+==========================
+→ Loading files
+→ Removing seizure epochs (State 4 = Seizure)
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7086_BL1.pkl
+			Saved: S7086_BL2.pkl
+		→ Saving clean epoch indices for power analysis => NOT READY YET!!!!
+
+==========================
+Processing S7091 (BL1 + BL2)
+==========================
+→ Loading files
+→ Removing seizure epochs (State 4 = Seizure)
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7091_BL1.pkl
+			Saved: S7091_BL2.pkl
+		→ Saving clean epoch indices for power analysis => NOT READY YET!!!!
+
+==========================
+Processing S7098 (BL1 + BL2)
+==========================
+→ Loading files
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7098_BL1.pkl
+			Saved: S7098_BL2.pkl
+		→ Saving clean epoch indices for power analysis => NOT READY YET!!!!
+
+==========================
+Processing S7101 (BL1 + BL2)
+==========================
+→ Loading files
+→ Filtering data
+→ Main preprocessing pipline:
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7101_BL1.pkl
+			Saved: S7101_BL2.pkl
+		→ Saving clean epoch indices for power analysis => NOT READY YET!!!!
+
+==========================
+Processing S7068 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7068_BL1.pkl
+		→ Saving clean epoch indices for power analysis => NOY READY YET!!!!
+
+==========================
+Processing S7074 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7074_BL1.pkl
+		→ Saving clean epoch indices for power analysis => NOY READY YET!!!!
+
+==========================
+Processing S7075 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7075_BL1.pkl
+		→ Saving clean epoch indices for power analysis => NOY READY YET!!!!
+
+==========================
+Processing S7076 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7076_BL1.pkl
+		→ Saving clean epoch indices for power analysis => NOY READY YET!!!!
+
+==========================
+Processing S7088 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7088_BL1.pkl
+		→ Saving clean epoch indices for power analysis => NOY READY YET!!!!
+
+==========================
+Processing S7092 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs (State 5 = Noise)
+		→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)
+→ Saving outputs:
+		→ Saving cleaned brainstates
+			Saved: S7092_BL1.pkl
+		→ Saving clean epoch indices for power analysis => NOY READY YET!!!!

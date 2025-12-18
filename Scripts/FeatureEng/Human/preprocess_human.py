@@ -15,6 +15,8 @@ def load_filtered_data(file_path, file_name):
             exclude = ['F3:M2', 'C3:M2', 'O1:M2', 'Position', 'PLM1', 'PLM2',
                        'Snore', 'Flow', 'Effort', 'Thorax', 'Abdomen', 'SpO2', 'Pleth', 'Pulse',
                       'E1:M2', 'E2:M2', 'EMG', 'M2'], preload=True)
+    
+    print(f"Channels: {raw_edf.info['nchan']}, Duration: {raw_edf.n_times / raw_edf.info['sfreq']} seconds")
 
     filtered_data = raw_edf.filter(l_freq = 0.3, h_freq = 35)
 

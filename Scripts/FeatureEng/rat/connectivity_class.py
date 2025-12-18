@@ -5,7 +5,7 @@ import pandas as pd
 from mne_features.bivariate import compute_phase_lock_val, compute_max_cross_corr
 from mne_connectivity import spectral_connectivity_time
 
-sys.path.insert(0, '/home/melissa/PROJECT_DIRECTORIES/EEGFeatureExtraction/Scripts/Preprocessing')
+sys.path.insert(0, '/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/Preprocessing')
 from load_files import LoadFiles
 from filter import NoiseFilter 
 from constants import SYNGAP_baseline_start, SYNGAP_baseline_end, channel_variables, SYNGAP_1_ls, SYNGAP_2_ls, analysis_ls

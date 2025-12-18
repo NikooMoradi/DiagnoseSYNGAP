@@ -6,20 +6,20 @@ from mne_connectivity import spectral_connectivity_time
 from mne_features.bivariate import compute_phase_lock_val, compute_max_cross_corr
 from connectivity_class import ConnectivityClass
 
-sys.path.insert(0, '/home/melissa/PROJECT_DIRECTORIES/EEGFeatureExtraction/Scripts/Preprocessing')
+sys.path.insert(0, '/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/Preprocessing')
 from load_files import LoadFiles
 from filter import NoiseFilter
 from constants import SYNGAP_baseline_start, SYNGAP_baseline_end, channel_variables, SYNGAP_1_ls, SYNGAP_2_ls, analysis_ls
 
-directory_path = '/home/melissa/PREPROCESSING/SYNGAP1/numpyformat_baseline/'
-results_path = '/home/melissa/PROJECT_DIRECTORIES/EEGFeatureExtraction/Results/Rat/Connectivity/'
+directory_path = '/home/s2864332/SYNGAP_Rat_Data/formatted/numpyformat_baseline/'
+results_path = '/home/s2864332/SYNGAP_Rat_Data/FeatureEng/connectivity/'
 channel_indices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 channel_labels = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15]
 frequency_bands = [(1, 5), (5, 11), (11, 16), (16, 30), (30, 48)]
 frequency_names = ['delta', 'theta', 'sigma', 'beta', 'gamma']
 connectivity_cal = 'cross_corr'
 
-analysis_ls = [ 'S7070', 'S7071', 'S7074', 'S7086', 'S7091', 'S7098', 'S7101']
+# analysis_ls = [ 'S7070', 'S7071', 'S7074', 'S7086', 'S7091', 'S7098', 'S7101']
 for animal in analysis_ls:
     print(f'loading {animal}')
     animal = str(animal)

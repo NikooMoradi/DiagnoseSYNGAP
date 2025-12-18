@@ -3,20 +3,20 @@ import sys
 import numpy as np 
 import pandas as pd
 import scipy
-from scipy import average, gradient, signal
+# from scipy import average, gradient, signal
 import sys 
 import matplotlib.pyplot as plt
 
 
-sys.path.insert(0, '/home/melissa/PROJECT_DIRECTORIES/EEGFeatureExtraction/Scripts/Preprocessing')
+sys.path.insert(0, '/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/Preprocessing')
 from load_files import LoadFiles
 from filter import NoiseFilter, HarmonicsFilter, remove_seizure_epochs
-from exploratory import FindNoiseThreshold
-from constants import SYNGAP_baseline_start, SYNGAP_baseline_end, channel_variables, seizure_free_IDs, seizure_two_files, SYNGAP_1_ID_ls, SYNGAP_2_ID_ls
+# from exploratory import FindNoiseThreshold
+from constants import SYNGAP_baseline_start, SYNGAP_baseline_end, channel_variables, seizure_free_IDs, seizure_two_files, SYNGAP_1_ls, SYNGAP_2_ls
 
-directory_path = '/home/melissa/PREPROCESSING/SYNGAP1/numpyformat_baseline/'
+directory_path = '/home/s2864332/SYNGAP_Rat_Data/formatted/numpyformat_baseline/'
 seizure_br_path = '/home/melissa/PREPROCESSING/SYNGAP1/csv_seizures/'
-clean_br_path = '/home/melissa/PREPROCESSING/SYNGAP1/clean_br/'
+clean_br_path = '/home/s2864332/SYNGAP_Rat_Data/clean_br/'
 
 br_number = 0
 
@@ -46,7 +46,8 @@ def preprocess_data_2_animals(animal_ids, directory_path, seizure_free_ids, seiz
         bandpass_filtered_data_2 = noise_filter_2.filter_data_type()
 
         # Find noise and calculate thresholds
-        processed_data_1 = process_data(noise_filter_1, bandpass_filtered_data_1, br_number)
+        processed_data_1 = process_data(noise_filter_1, bandpass_filtered_data_1, br_number, animal_id, seizure_free_ids)
+        
         processed_data_2 = process_data(noise_filter_2, bandpass_filtered_data_2, br_number)
 
         # Save cleaned brain states
@@ -103,4 +104,4 @@ def save_clean_brain_states(clean_br_path, animal_id, clean_br_1, clean_br_2):
     print('Saved cleaned brain states')
     
 #input list of animal ids to preprocess 
-preprocess_data_2_animals(SYNGAP_2_ID_ls, directory_path, seizure_free_IDs, seizure_br_path, SYNGAP_baseline_start, SYNGAP_baseline_end, channel_variables, br_number)
+preprocess_data_2_animals(SYNGAP_2_ls, directory_path, seizure_free_IDs, seizure_br_path, SYNGAP_baseline_start, SYNGAP_baseline_end, channel_variables, br_number)

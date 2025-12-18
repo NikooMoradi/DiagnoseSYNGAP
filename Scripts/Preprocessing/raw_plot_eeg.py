@@ -6,7 +6,9 @@ import numpy as np
 import mne
 #%matplotlib inline
 
+import matplotlib
 import matplotlib.pyplot as plt
+matplotlib.use("Agg")
 #matplotlib.use('agg')
 
 from load_files import LoadFiles
@@ -15,7 +17,7 @@ from filter import NoiseFilter
 from constants import SYNGAP_baseline_start, SYNGAP_baseline_end, channel_variables
 
 #load an example file 
-directory_path = '/home/melissa/PREPROCESSING/SYNGAP1/numpyformat_baseline/'
+directory_path = '/home/s2864332/SYNGAP_Rat_Data/formatted/numpyformat_baseline/'
 tst_72 = np.load(directory_path + 'S7072_BASELINE.npy')
 start_time = 16481329
 end_time = 38115888
@@ -50,8 +52,9 @@ for animal in train_2_ids:
     bandpass_filtered_data_2 = noise_filter_2.filter_data_type()
     
     
-clean_indices = pd.read_pickle('/home/melissa/PREPROCESSING/SYNGAP1/cleaned_br_files/' + 'S7072_BL1.pkl')
+clean_indices = pd.read_pickle('/home/s2864332/SYNGAP_Rat_Data/formatted/formatted_br/' + 'S7072_BL1.pkl')
 noise_indices = clean_indices.loc[clean_indices['brainstate'] == 6]
+print(noise_indices)
 indices = list(noise_indices.index)
 
 #find indices to plot
@@ -72,5 +75,8 @@ split_epochs = np.split(bandpass_filtered_data_1, 17280, axis = 1)
 epoch_test = bandpass_filtered_data_1[:, start_time:]
 
 raw = mne.io.RawArray(epoch_test, raw_info)
-raw.plot(scalings = 'auto', start = 0, show_scrollbars = False)
-plt.show()
+# raw.plot(scalings = 'auto', start = 0, show_scrollbars = False)
+# plt.show()
+
+fig = raw.plot(scalings='auto', start=0, show_scrollbars=False)
+fig.savefig("raw_plot_S7072.png")

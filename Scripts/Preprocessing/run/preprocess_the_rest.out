@@ -1,0 +1,84 @@
+nohup: ignoring input
+
+==========================
+Processing S7101 (BL1 + BL2)
+==========================
+→ Loading files
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs
+		→ Labeling noisy epochs in brainstate (State 5 = Noise)
+		→ Detecting harmonic artifacts
+		→ Labeling harmonic artifacts in brainstate (State 3 = Artifact/Harmonic)
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs
+		→ Labeling noisy epochs in brainstate (State 5 = Noise)
+		→ Detecting harmonic artifacts
+		→ Labeling harmonic artifacts in brainstate (State 3 = Artifact/Harmonic)
+→ Saving cleaned brainstates
+Saved: S7101_BL1.pkl
+Saved: S7101_BL2.pkl
+
+==========================
+Processing S7068 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs
+		→ Labeling noisy epochs in brainstate (State 5 = Noise)
+		→ Detecting harmonic artifacts
+		→ Labeling harmonic artifacts in brainstate (State 3 = Artifact/Harmonic)
+→ Saving cleaned brainstate
+Saved: S7068_BL1.pkl
+
+==========================
+Processing S7074 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs
+		→ Labeling noisy epochs in brainstate (State 5 = Noise)
+		→ Detecting harmonic artifacts
+		→ Labeling harmonic artifacts in brainstate (State 3 = Artifact/Harmonic)
+→ Saving cleaned brainstate
+Saved: S7074_BL1.pkl
+
+==========================
+Processing S7075 (BL1 only)
+==========================
+→ Loading files
+→ Removing seizure epochs
+→ Filtering data
+→ Main preprocessing pipline
+		→ Detecting packet loss (State 6 = Packet Loss)
+		→ Calculating noise thresholds
+		→ Detecting noisy epochs
+		→ Labeling noisy epochs in brainstate (State 5 = Noise)
+		→ Detecting harmonic artifacts
+		→ Labeling harmonic artifacts in brainstate (State 3 = Artifact/Harmonic)
+→ Saving cleaned brainstate
+Saved: S7075_BL1.pkl
+
+==========================
+Processing S7076 (BL1 only)
+==========================
+→ Loading files
+Traceback (most recent call last):
+  File "/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/Preprocessing/remove_noise_br_2.py", line 178, in <module>
+    preprocess_data_1_animal(SYNGAP_1_ls)
+  File "/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/Preprocessing/remove_noise_br_2.py", line 147, in preprocess_data_1_animal
+    data_1, br_1 = lf.load_one_analysis_file(
+  File "/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/Preprocessing/load_files.py", line 44, in load_one_analysis_file
+    brain_state_1 = pd.read_pickle(brain_file_1[0])
+IndexError: list index out of range

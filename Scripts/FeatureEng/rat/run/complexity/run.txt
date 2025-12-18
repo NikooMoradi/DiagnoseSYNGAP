@@ -1,0 +1,1 @@
+nohup python3 entropy.py > /home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/FeatureEng/rat/run/complexity/entropy_1.out 2>&1 &

@@ -30,7 +30,7 @@ class LoadFiles():
         
         end_time_1 = end_times_dict[self.end_dict_1]
         end_time_2 = end_times_dict[self.end_dict_2]
-
+        
         recording_1 = recording[:, start_time_1: end_time_1 + 1]
         recording_2 = recording[:, start_time_2: end_time_2 + 1]
         
@@ -40,15 +40,20 @@ class LoadFiles():
         animal_recording = [filename for filename in os.listdir(self.directory_path) if filename.startswith(self.animal_id) and filename.endswith('.npy')]
         os.chdir(self.directory_path)
         recording = np.load(animal_recording[0]) 
-        brain_file_1 = [filename for filename in os.listdir(self.directory_path) if filename == self.brain_1]
-        brain_state_1 = pd.read_pickle(brain_file_1[0])
-        
         start_time_1 = start_times_dict[self.start_dict_1]
         end_time_1 = end_times_dict[self.end_dict_1]
-        
         recording_1 = recording[:, start_time_1: end_time_1 + 1]
 
-        return recording_1, brain_state_1 
+
+        if os.path.exists(os.path.join(self.directory_path, self.brain_1)):
+            brain_file = [filename for filename in os.listdir(self.directory_path) if filename == self.brain_1]
+            brain_state = pd.read_pickle(brain_file[0])
+        else:
+            brain_file = [filename for filename in os.listdir(self.directory_path) if filename == self.brain_2]
+            brain_state = pd.read_pickle(brain_file[0])
+        
+        
+        return recording_1, brain_state 
     
     def extract_br_state(self, recording, br_state_file, br_number):
         split_epochs = np.split(recording, len(br_state_file), axis = 1)
