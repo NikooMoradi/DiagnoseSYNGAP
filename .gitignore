@@ -9,3 +9,30 @@ Scripts/FeatureEng/__pycache__/
 Scripts/ML/prepare.ipynb
 Scripts/FeatureEng/Human/__pycache__/
 Scripts/Analyse/Human/.ipynb_checkpoints
+
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Outputs / results
+*.csv
+*.npy
+*.npz
+
+# Eddie / HPC logs
+*.o*
+*.e*
+*.po*
+logs/
+
+# Scratch / run artifacts
+run/**/logs/
+run/**/*.out
+
+# OS
+.DS_Store
