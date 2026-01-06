@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd 
 import scipy
 from scipy import signal 
-from numba import njit
+# from numba import njit
 
 #from parameters import channelvariables
 
@@ -233,7 +233,8 @@ class NoiseFilter:
 
             packet_loss = clean_br[clean_br['brainstate'] == 6].index.tolist()
             br_calc = clean_br[clean_br['brainstate'] == br_number].index.tolist()
-
+            if slope_thresh < -8:
+                slope_thresh = -8
             for idx, epoch in enumerate(split_epochs):
                 if idx in packet_loss:
                     continue

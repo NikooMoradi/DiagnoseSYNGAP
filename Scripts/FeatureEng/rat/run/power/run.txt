@@ -1,1 +1,2 @@
 nohup python3 power.py > /home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/FeatureEng/rat/run/power/power_1.out 2>&1 &
+

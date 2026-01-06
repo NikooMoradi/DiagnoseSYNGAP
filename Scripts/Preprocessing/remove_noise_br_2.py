@@ -3,7 +3,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, '/home/s2864332/MySYNGAP/DiagnoseSYNGAP/Scripts/Preprocessing')
+sys.path.insert(0, '/home/s2864332/MySYNGAP/MySYNGAP/DiagnoseSYNGAP/Scripts/Preprocessing')
 
 from load_files import LoadFiles
 from filter import NoiseFilter, HarmonicsFilter, remove_seizure_epochs
@@ -18,10 +18,10 @@ from constants import (
 )
 
 # Paths used in preprocessing
-directory_path = '/home/s2864332/SYNGAP_Rat_Data/formatted/numpyformat_baseline/'
+directory_path = '/exports/eddie/scratch/s2864332/SYNGAP_Rat_Data/formatted_raw/numpyformat_baseline/'
 seizure_br_path = '/home/melissa/PREPROCESSING/SYNGAP1/csv_seizures/'
-clean_br_path = '/home/s2864332/SYNGAP_Rat_Data/Preprocessed/clean_brain_states/'
-filtered_data_path = '/home/s2864332/SYNGAP_Rat_Data/Preprocessed/filtered_data/'
+clean_br_path = '/exports/eddie/scratch/s2864332/SYNGAP_Rat_Data/Preprocessed/clean_brain_states/'
+filtered_data_path = '/exports/eddie/scratch/s2864332/SYNGAP_Rat_Data/Preprocessed/filtered_data/'
 
 # Brainstate number to analyze (usually wake = 0)
 br_number = 0
@@ -79,39 +79,39 @@ def process_data(noise_filter, bandpass_filtered_data, clean_br, br_number, anim
 
     # 1) Detect packet loss
     print("\t\t→ Detecting packet loss (State 6 = Packet Loss)")
-    clean_br, packet_loss_idx = noise_filter.find_packetloss_indices(bandpass_filtered_data, loss_thresh=50)
+    clean_br, packet_loss_idx = noise_filter.find_packetloss_indices(bandpass_filtered_data, loss_thresh=31000)
 
     # 2) Compute noise thresholds
     print("\t\t→ Calculating noise thresholds")
     slope_thresh, int_thresh = noise_filter.calc_noise_thresh(bandpass_filtered_data, packet_loss_idx)
 
-    # # 3) Power-based noise detection
-    # print("\t\t→ Detecting noisy epochs (State 5 = Noise)")
-    # _, noise_indices = noise_filter.power_calc_noise(
-    #     bandpass_filtered_data,
-    #     slope_thresh=slope_thresh,
-    #     int_thresh=int_thresh,
-    #     clean_br=clean_br,
-    #     br_number=br_number
-    # )
+    # 3) Power-based noise detection
+    print("\t\t→ Detecting noisy epochs (State 5 = Noise)")
+    _, noise_indices = noise_filter.power_calc_noise(
+        bandpass_filtered_data,
+        slope_thresh=slope_thresh,
+        int_thresh=int_thresh,
+        clean_br=clean_br,
+        br_number=br_number
+    )
 
-    # # Label those epochs
-    # # print("\t\t→ Labeling noisy epochs in brainstate (State 5 = Noise)")
-    # clean_br.loc[noise_indices, "brainstate"] = 5
+    # Label those epochs
+    # print("\t\t→ Labeling noisy epochs in brainstate (State 5 = Noise)")
+    clean_br.loc[noise_indices, "brainstate"] = 5
 
-    # # 4) Harmonic noise detection
-    # print("\t\t→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)")
-    # harmonic_indices = HarmonicsFilter(
-    #     filtered_data=bandpass_filtered_data,
-    #     br_state_file=clean_br,
-    #     br_state_num=br_number,
-    #     noise_array=noise_indices
-    # ).harmonics_algo()
+    # 4) Harmonic noise detection
+    print("\t\t→ Detecting harmonic artifacts (State 3 = Artifact/Harmonic)")
+    harmonic_indices = HarmonicsFilter(
+        filtered_data=bandpass_filtered_data,
+        br_state_file=clean_br,
+        br_state_num=br_number,
+        noise_array=noise_indices
+    ).harmonics_algo()
 
-    # # print("\t\t→ Labeling harmonic artifacts in brainstate (State 3 = Artifact/Harmonic)")
-    # clean_br.loc[harmonic_indices, "brainstate"] = 3
+    # print("\t\t→ Labeling harmonic artifacts in brainstate (State 3 = Artifact/Harmonic)")
+    clean_br.loc[harmonic_indices, "brainstate"] = 3
 
-    # return clean_br
+    return clean_br
 
 
 # =====================================================
@@ -151,18 +151,18 @@ def preprocess_data_2_animals(animal_ids, save_clean_br=True, save_filtered=True
         clean_br_1 = process_data(nf1, filtered_1, br_1, br_number, animal_id)
         clean_br_2 = process_data(nf2, filtered_2, br_2, br_number, animal_id)
 
-        # # Save
-        # if save_clean_br:
-        #     print("→ Saving outputs:")
-        #     print("\t\t→ Saving cleaned brainstates")
-        #     save_clean_brain_states(clean_br_path, animal_id, clean_br_1, clean_br_2)
+        # Save
+        if save_clean_br:
+            print("→ Saving outputs:")
+            print("\t\t→ Saving cleaned brainstates")
+            save_clean_brain_states(clean_br_path, animal_id, clean_br_1, clean_br_2)
 
-        # if save_filtered:
-        #     print("\t\t→ Saving filtered data")
-        #     filtered_full = np.concatenate([filtered_1, filtered_2], axis=1)
-        #     save_filtered_data(filtered_data_path, animal_id, filtered_full, suffix="")
+        if save_filtered:
+            print("\t\t→ Saving filtered data")
+            filtered_full = np.concatenate([filtered_1, filtered_2], axis=1)
+            save_filtered_data(filtered_data_path, animal_id, filtered_full, suffix="")
 
-        # print("\t\t→ Saving clean epoch indices for power analysis => NOT READY YET!!!!")
+        print("\t\t→ Saving clean epoch indices for power analysis => NOT READY YET!!!!")
 
 
 # =====================================================
@@ -195,16 +195,16 @@ def preprocess_data_1_animal(animal_ids, save_clean_br=True, save_filtered=True)
         print("→ Main preprocessing pipline")
         clean_br = process_data(nf1, filtered_1, br_1, br_number, animal_id)
 
-        # # Save
-        # if save_clean_br:
-        #     print("→ Saving outputs:")
-        #     print("\t\t→ Saving cleaned brainstates")
-        #     save_clean_brain_states(clean_br_path, animal_id, clean_br)
-        # if save_filtered:
-        #     print("\t\t→ Saving filtered data")
-        #     save_filtered_data(filtered_data_path, animal_id, filtered_1, suffix="")
+        # Save
+        if save_clean_br:
+            print("→ Saving outputs:")
+            print("\t\t→ Saving cleaned brainstates")
+            save_clean_brain_states(clean_br_path, animal_id, clean_br)
+        if save_filtered:
+            print("\t\t→ Saving filtered data")
+            save_filtered_data(filtered_data_path, animal_id, filtered_1, suffix="")
 
-        # print("\t\t→ Saving clean epoch indices for power analysis => NOY READY YET!!!!")
+        print("\t\t→ Saving clean epoch indices for power analysis => NOY READY YET!!!!")
 
 
 # =====================================================
