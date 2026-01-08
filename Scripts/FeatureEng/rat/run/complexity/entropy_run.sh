@@ -23,14 +23,6 @@ date
 # Run the program
 export PYTHONPATH=/home/s2864332/MySYNGAP/MySYNGAP:/home/s2864332/MySYNGAP/MySYNGAP/ArtifactDetection:$PYTHONPATH
 
-# python3 /home/s2864332/MySYNGAP/MySYNGAP/DiagnoseSYNGAP/Scripts/FeatureEng/rat/entropy.py
 python3 -m DiagnoseSYNGAP.Scripts.FeatureEng.rat.entropy
 
 echo 'Finish run'
-
-#  These options are:
-#  job name: -N
-#  use the current working directory: -cwd
-#  runtime limit of 5 minutes: -l h_rt
-#  virtual memory limit of 32 Gbyte: -l h_vmem
-#  resident set size memory limie of 32 Gbyte: -l h_rss

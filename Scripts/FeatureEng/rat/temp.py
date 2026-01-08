@@ -1,8 +1,3 @@
-import sys
-sys.stdout.reconfigure(line_buffering=True)
-print(">>> CONNECTIVITY MODULE STARTED <<<")
-print("ARGV:", sys.argv)
-
 import os
 import numpy as np 
 import pandas as pd 
@@ -10,9 +5,18 @@ from mne_connectivity import spectral_connectivity_time
 from mne_features.bivariate import compute_phase_lock_val, compute_max_cross_corr
 from .connectivity_class import ConnectivityClass
 import argparse
+
 from DiagnoseSYNGAP.Scripts.Preprocessing.load_files import LoadFiles
 from DiagnoseSYNGAP.Scripts.Preprocessing.filter import NoiseFilter
 from DiagnoseSYNGAP.Scripts.Preprocessing.constants import SYNGAP_baseline_start, SYNGAP_baseline_end, channel_variables, SYNGAP_1_ls, SYNGAP_2_ls, analysis_ls
+
+directory_path = '/exports/eddie/scratch/s2864332/SYNGAP_Rat_Data/formatted_raw/numpyformat_baseline/'
+results_path = '/exports/eddie/scratch/s2864332/SYNGAP_Rat_Data/FeatureEng/connectivity/'
+channel_indices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+channel_labels = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15]
+frequency_bands = [(1, 5), (5, 11), (11, 16), (16, 30), (30, 48)]
+frequency_names = ['delta', 'theta', 'sigma', 'beta', 'gamma']
+# connectivity_cal = 'phase_lock'  # Options: 'phase_lock' or 'cross_corr'
 
 parser = argparse.ArgumentParser(description="Connectivity feature extraction")
 parser.add_argument(
@@ -25,81 +29,62 @@ parser.add_argument(
 args = parser.parse_args()
 connectivity_cal = args.connectivity
 
-directory_path = '/exports/eddie/scratch/s2864332/SYNGAP_Rat_Data/formatted_raw/numpyformat_baseline/'
-results_path = '/exports/eddie/scratch/s2864332/SYNGAP_Rat_Data/FeatureEng/connectivity/'
-channel_indices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-channel_labels = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15]
-frequency_bands = [(1, 5), (5, 11), (11, 16), (16, 30), (30, 48)]
-frequency_names = ['delta', 'theta', 'sigma', 'beta', 'gamma']
-
-analysis_ls = SYNGAP_2_ls
+# analysis_ls = [ 'S7070', 'S7071', 'S7074', 'S7086', 'S7091', 'S7098', 'S7101']
 print(f"Feature: {connectivity_cal}")
 print(f"Analysis list: {analysis_ls}")
-print(300*"=")
 for animal in analysis_ls:
-    print(200*"-")
     print(f'loading {animal}')
     animal = str(animal)
     load_files = LoadFiles(directory_path, animal)
     if animal in SYNGAP_2_ls:
         num_epochs = 34560
-        print("Loading two files ,for:", animal)
         data_1, data_2, brain_state_1, brain_state_2 = load_files.load_two_analysis_files(start_times_dict=SYNGAP_baseline_start, end_times_dict=SYNGAP_baseline_end)
         data = np.concatenate([data_1, data_2], axis = 1)
         connectivity_calculations = ConnectivityClass(data = data, brain_state = brain_state_1,
                                                       channels = channel_labels, animal_id = animal)
+
     if animal in SYNGAP_1_ls:
         num_epochs = 17280
-        print("Loading one file ,for:", animal)
         data, brain_state = load_files.load_one_analysis_file(start_times_dict=SYNGAP_baseline_start, end_times_dict=SYNGAP_baseline_end)
         connectivity_calculations = ConnectivityClass(data = data, brain_state = brain_state,
                                                       channels = channel_labels, animal_id = animal)
          
     freq_results = []
-
-    if connectivity_cal == 'phase_lock':
-        print(f'Preparing data for PLV calculation for {animal}')
-        filtered_data = connectivity_calculations.prepare_data(
-            num_epochs=num_epochs,
-            connectivity=connectivity_cal
-        )
-
     for (low, high), label in zip(frequency_bands, frequency_names):
 
         if connectivity_cal == 'phase_lock':
-            print("calculating PLV for", label, "band:", low, "-", high, "Hz ,for: ", animal)
+            print("calculating PLV for", label, "band:", low, "-", high, "Hz")
+            filtered_data = connectivity_calculations.prepare_data(num_epochs = num_epochs, connectivity = connectivity_cal)
             connect_array = connectivity_calculations.calculate_plv_mne(filtered_data = filtered_data, 
                                                                           freq_band = (low, high))
+
             print("Analyzing PLV dataframe for:",animal)
+            
             plv_df = connectivity_calculations.analyse_plv(array = connect_array, freq_band = label)
-            print("APPENDING PLV results for", label, "band ,for:", animal)
+            print("APPENDING PLV results for", label, "band", ",for", animal)
             freq_results.append(plv_df)
-    
+
         if connectivity_cal == 'cross_corr':
-            print(f'\nProcessing {label} band: {low}-{high} Hz for {animal}')
-            print(f'\nPreparing data')
+            print(f'Processing {label} band: {low}-{high} Hz for {animal}')
             filtered_data = connectivity_calculations.prepare_data(num_epochs = num_epochs, connectivity = connectivity_cal,
                                                                   low = low, high = high)
-            print(f'\nCalculating Cross-Correlation')
             df_result, error = connectivity_calculations.calculate_max_cross_corr(filtered_data = filtered_data, num_epochs = num_epochs)
             
             print(df_result)
             print(type(df_result))
 
-            print("\n>>> SAVING CROSS CORR:", animal, "\npath:", os.path.join(results_path, f'{animal}_{label}_{connectivity_cal}.npy'))
+            #freq_results.append(df_result)
             np.save(os.path.join(results_path, f'{animal}_{label}_{connectivity_cal}.npy'), df_result)
-            print("s\nuccessfully saved CROSS CORR", label, "band ,for:", animal)
-            print("\n\n",100*"=","\n\n")
-    if connectivity_cal == 'phase_lock':
-        # freq_concat = pd.concat(freq_results)
-        all_frequencies_concat = pd.concat(freq_results, axis=1)
-
-        print(">>> SAVING PLV:", animal, "\npath:", os.path.join(results_path, f'{animal}_{connectivity_cal}.pkl'))
-        all_frequencies_concat.to_pickle(
-            os.path.join(results_path, f'{animal}_{connectivity_cal}.pkl')
-        )
-        print("successfully saved PLV ,for: ", animal)
-        print("\n\n")
-        print((all_frequencies_concat.columns))
-        print((all_frequencies_concat.shape))
-        print("\n\n")
+ 
+    freq_concat = pd.concat(freq_results)
+    all_frequencies_concat = pd.concat(freq_concat, axis = 1)
+    print(">>> SAVING PLV:", animal, "\npath:", os.path.join(results_path, f'{animal}_{connectivity_cal}.pkl'))
+    all_frequencies_concat.to_csv(os.path.join(results_path, f'{animal}_{connectivity_cal}.csv'))
+    print("successfully saved PLV", animal)
+    print("\n\n")
+    print((all_frequencies_concat.columns))
+    print((all_frequencies_concat.head()))
+    print((all_frequencies_concat.shape))
+    print("\n\n")
+    
+    

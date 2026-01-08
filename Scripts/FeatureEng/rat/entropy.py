@@ -14,6 +14,8 @@ channel_labels = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15]
 directory_path = '/exports/eddie/scratch/s2864332/SYNGAP_Rat_Data/formatted_raw/numpyformat_baseline/'
 results_path = '/exports/eddie/scratch/s2864332/SYNGAP_Rat_Data/FeatureEng/complexity/entropy/'
 
+analysis_ls = SYNGAP_1_ls
+print(analysis_ls)
 for animal in analysis_ls:
     print(f'loading {animal}')
     animal = str(animal)
